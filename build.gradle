@@ -1,0 +1,50 @@
+/*
+   Project books_with_purpose
+
+   Gradle build file for JaCaMo Applications
+   November 16, 2021 - 14:55:53
+*/
+
+//defaultTasks 'run'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+version '1.0'
+group   'org.jacamo'
+
+// java {
+//     toolchain {
+//         languageVersion = JavaLanguageVersion.of(15)
+//     }
+// }
+
+repositories {
+   	mavenCentral()
+    maven { url "https://repo.gradle.org/gradle/libs-releases-local" }
+    maven { url 'https://jitpack.io' }
+       }
+
+dependencies {
+ 	implementation 'com.github.instagram4j:instagram4j:2.0.6'
+}
+ 
+
+
+sourceSets {
+    main {
+        java {
+        	srcDir 'src'
+            srcDir 'src/java'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+
+clean {
+    delete 'bin'
+    delete 'build'
+    delete 'log'
+}
