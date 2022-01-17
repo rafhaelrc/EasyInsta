@@ -43,6 +43,17 @@ sourceSets {
     }
 }
 
+jar {
+    baseName 'EasyInsta-v1'
+    manifest {
+        attributes 'Main-Class': 'Main',
+                   'Specification-Title': 'Easy Insta API',
+                   'Specification-Version': project.version,
+                   'Implementation-Version': new Date().toString()
+    }
+}
+
+
 clean {
     delete 'bin'
     delete 'build'
