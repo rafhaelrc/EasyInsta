@@ -7,11 +7,22 @@
 
 //defaultTasks 'run'
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
+//apply plugin: 'java'
+//apply plugin: 'eclipse'
+
+
+plugins {
+id 'java'
+id 'eclipse'
+id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+
+//apply plugin: 'gradle-one-jar'
+
 
 version '1.0'
-group   'org.jacamo'
+group   'ufsc.EasyInsta'
 
 // java {
 //     toolchain {
@@ -21,15 +32,18 @@ group   'org.jacamo'
 
 repositories {
    	mavenCentral()
-    maven { url "https://repo.gradle.org/gradle/libs-releases-local" }
+   	maven { url "https://repo.gradle.org/gradle/libs-releases-local" }
     maven { url 'https://jitpack.io' }
        }
 
 dependencies {
+ 	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+  	implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
  	implementation 'com.github.instagram4j:instagram4j:2.0.6'
+ 	//implementation fileTree(dir: 'libs', include: ['*.jar'])
+ 	
 }
  
-
 
 sourceSets {
     main {
@@ -44,13 +58,28 @@ sourceSets {
 }
 
 jar {
-    baseName 'EasyInsta-v1'
+    duplicatesStrategy 'exclude'
+    baseName 'EasyInsta'
     manifest {
-        attributes 'Main-Class': 'Main',
+        attributes 'Main-Class': 'Teste',
                    'Specification-Title': 'Easy Insta API',
                    'Specification-Version': project.version,
                    'Implementation-Version': new Date().toString()
     }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    duplicatesStrategy = 'include'
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 
