@@ -21,7 +21,7 @@ id 'com.github.johnrengelman.shadow' version '7.1.2'
 //apply plugin: 'gradle-one-jar'
 
 
-version '2.0'
+version '1.1'
 group   'ufsc.EasyInsta'
 
 // java {
