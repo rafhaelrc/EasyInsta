@@ -1,3 +1,4 @@
+package org.easyinsta;
 public final class Task<T> {
     protected T value;
     protected Throwable exception;

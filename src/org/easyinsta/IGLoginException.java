@@ -1,9 +1,10 @@
+package org.easyinsta;
 
 
-public class InstagramException extends RuntimeException {
+public class IGLoginException extends Exception {
     private final Reasons reason;
 
-    public InstagramException(String message, Reasons reason) {
+    public IGLoginException(String message, Reasons reason) {
         super(message);
         this.reason = reason;
     }

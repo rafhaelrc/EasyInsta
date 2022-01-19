@@ -1,3 +1,4 @@
+package org.easyinsta;
 
 
 public enum Reasons {
