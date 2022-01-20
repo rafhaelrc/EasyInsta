@@ -34,14 +34,12 @@ repositories {
    	mavenCentral()
    	maven { url "https://repo.gradle.org/gradle/libs-releases-local" }
     maven { url 'https://jitpack.io' }
-       }
+}
 
 dependencies {
  	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
   	implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
  	implementation 'com.github.instagram4j:instagram4j:2.0.6'
- 	//implementation fileTree(dir: 'libs', include: ['*.jar'])
- 	
 }
  
 

@@ -3,10 +3,11 @@
 ##############################
 .mtj.tmp/
 *.class
-*.jar
+
 *.war
 *.ear
 *.nar
+*.jar
 hs_err_pid*
 Teste.java
 
@@ -24,6 +25,7 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
+
 ##############################
 ## Gradle
 ##############################
@@ -33,6 +35,8 @@ build/
 .gradletasknamecache
 gradle-app.setting
 !gradle-wrapper.jar
+
+
 
 ##############################
 ## IntelliJ
